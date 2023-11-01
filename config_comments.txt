@@ -1,0 +1,80 @@
+
+[NEAT]
+fitness_criterion     = max # Definimos que queremos maximizar a pontuação
+fitness_threshold     = 1000 # Limite de pontuação.
+pop_size              = 100 # Número da população 
+reset_on_extinction   = False # Caso acabe todos os passaros da rede neural, ele da um erro. Caso "True" ele recria do 0 a rede neural
+
+[DefaultGenome] # Configurações do genoma
+# node activation options
+activation_default      = tanh # Função de ativação (Tangente Hiperbolica) 
+activation_mutate_rate  = 0.0 # Não teste outra função
+activation_options      = tanh # Sempre função hiperbolica
+
+# node aggregation options
+aggregation_default     = sum # Agrege os valores somando (Minuto 13:00 do video 3)
+aggregation_mutate_rate = 0.0 # Não tente outra forma de agregação
+aggregation_options     = sum # Sempre agrege com soma
+
+# node bias options 
+bias_init_mean          = 0.0 # Media
+bias_init_stdev         = 1.0 # Desvio Padrão
+bias_max_value          = 30.0
+bias_min_value          = -30.0
+bias_mutate_power       = 0.5 # 'força' da mutação, 50%, intensidade
+bias_mutate_rate        = 0.7 # Taxa de mutação - 70% dentro do BIAS
+bias_replace_rate       = 0.1 # Testar um novo valor aleatório para BIAS -> 10% 
+
+# genome compatibility options
+compatibility_disjoint_coefficient = 1.0 # config para estabelecer criterios sobre qual individuo da população replicar e como replicar
+compatibility_weight_coefficient   = 0.5
+
+# connection add/remove rates
+conn_add_prob           = 0.5 # probabilidade dele excluir ou adicionar uma linha / aresta - 50%
+conn_delete_prob        = 0.5 # '' deletar - 50%
+
+# connection enable options
+enabled_default         = True # Todas conexões são ativas
+enabled_mutate_rate     = 0.01 # 1% de chance de mudar essas conexões
+
+feed_forward            = True # Valores indo da esquerda pra direita, do input ao output em uma ordem subsequente
+initial_connection      = full # 
+
+# node add/remove rates
+node_add_prob           = 0.2 # 20% de chance de criar um novo nó
+node_delete_prob        = 0.2 # '' delete
+
+# network parameters
+num_hidden              = 0 # config initial de nós 
+num_inputs              = 3
+num_outputs             = 1
+
+# node response options
+response_init_mean      = 1.0 # Configuração para o número que será utilizado nos nós do input -> output, nos nós
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options
+weight_init_mean        = 0.0 # Configuração para o número que será utilizado nos pessos do input -> output, nas arestas
+weight_init_stdev       = 1.0 
+weight_max_value        = 30 
+weight_min_value        = -30 
+weight_mutate_power     = 0.5 # Intensidade da mutação
+weight_mutate_rate      = 0.8 # Taxa de mutação
+weight_replace_rate     = 0.1 # Chance de colocar um valor aleatório
+
+[DefaultSpeciesSet]
+compatibility_threshold = 3.0 # Definindo especie dentro da população [diferença entre especies]
+
+[DefaultStagnation]
+species_fitness_func = max # Queremos maximizar a pontuação das especies
+max_stagnation       = 20 # A especie tem 20 gerações para conseguir melhorar a sua especie, caso contrário sera deletado
+species_elitism      = 2 # mantenha sempre 2 especies para não acabar toda população
+
+[DefaultReproduction]
+elitism            = 2 # Escolher 2 passáros de cada especie sem que haja alteração para a proxima geração 
+survival_threshold = 0.2 # caso haja mais q 2, que seja no maximo 20% dessa população para que haja uma diversidade
