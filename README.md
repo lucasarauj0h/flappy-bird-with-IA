@@ -9,7 +9,7 @@ a inteligência ultiliza o algoritmo de rede neural 'NEAT'
 
 ## Aprendizados
 
-Neste projeto me apronfudei em conceitos de POO-python e passo a entender algums conceitos de redes neurais
+Neste projeto me apronfudei em conceitos de POO-python e passo a entender alguns conceitos de redes neurais
 
 ## Instalação
 
