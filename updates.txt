@@ -1,0 +1,6 @@
+Ideias para updates futuros:
+
+Ideias que dificulte o aprendizado da rede neural para melhorar seus parametros
+- Aumentar velocidade do jogo a medida em que se progride.
+- Variar a largura dos canos para que a rede neural se adapte
+- Fazer com que os canos se movam também para cima e para baixo, fazendo com que a que a rede neural se adapte

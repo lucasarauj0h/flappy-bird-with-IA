@@ -235,6 +235,7 @@ def main(genomas, config): #Fitness Function, para isso ela precisa receber 2 pa
     relogio = pygame.time.Clock()
     
     rodando = True
+    
     while rodando:
         # Definindo para atualizar 30 frames por segundo.
         relogio.tick(30)
@@ -264,10 +265,11 @@ def main(genomas, config): #Fitness Function, para isso ela precisa receber 2 pa
         # Fazendo as coisas se mover!
         for i, passaro in enumerate(passaros):
             # Devemos aumentar o fitness do passaro a medida em que o mesmo caminha para mais longe
-            lista_genomas[i].fitness += 1
-            output = redes[i].activate((passaro.y, abs(passaro.y - canos[indice_cano].altura), abs(passaro.y - canos[indice_cano].pos_base))) # Passaremos uma tupla com os inputs dos passaros
-            if output[0] > 0.5:
-                passaro.pular()
+            if ai_jogando:
+                lista_genomas[i].fitness += 1
+                output = redes[i].activate((passaro.y, abs(passaro.y - canos[indice_cano].altura), abs(passaro.y - canos[indice_cano].pos_base))) # Passaremos uma tupla com os inputs dos passaros
+                if output[0] > 0.5:
+                    passaro.pular()
                 
             passaro.mover()
         chao.mover()
